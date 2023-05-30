@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .maindiv{
+              width: 100%;
+            }
+            .center-container {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              /* height: 100vh;  */
+        }
+        
+        .center-text {
+          text-align: center;
+          font-size: 18px;
+        }
+        
+        .center-button {
+          margin-top: 4px; 
+          padding: 7px 15px;
+          background-color: aquamarine;
+          font-weight: 700;
+          border: none;
+          font-size: 18px;
+          border-radius: 50px;
+        }
+
+    </style>
+</head>
+<body>
+        <!-- <div class="maindiv"> -->
+            <div class="center-container">
+                <p class="center-text" id="countnum"><b> 0</b></p>
+                <div>
+                <button class="center-button" onclick="counterbtn()">Increasement</button>
+                <button class="center-button" onclick="decressbtn()">Decreasement</button>
+                <button class="center-button" onclick="reset()">Reset</button>
+              </div>
+            </div>
+        <!-- </div> -->
+
+        <script>
+             let count = 0;
+             let intervalId;
+              function counterbtn(){
+                 count++;
+                 document.querySelector("#countnum").innerHTML = count;
+              }
+
+              function decressbtn(){
+                if(count > 0){
+                count--;
+                 document.querySelector("#countnum").innerHTML = count;
+              }
+            }
+
+            function reset(){
+                count = 0;
+                document.querySelector("#countnum").innerHTML = count;
+            }
+
+
+                       function startCounter() {
+             intervalId = setInterval(counterbtn, 1000); 
+           }
+           
+           function stopCounter() {
+             clearInterval(intervalId);
+           }
+           
+           
+           window.onload = startCounter;
+
+        </script>
+</body>
+</html>
